@@ -40,17 +40,14 @@ public class Ejercicio1 {
            String fecha = rs.getString("fecha");
            int idCliente = rs.getInt("id_cliente");
             System.out.println(idPedido + fecha + idCliente);
-
-        }
-         
+            
+        } 
         }catch (ClassNotFoundException e){
             System.out.println("Error" + e.getMessage());
         }catch (SQLException a){
             System.out.println("Error" + a.getMessage());
         }
-        
-        
-        
+     
     }
     
 }
