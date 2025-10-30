@@ -1,7 +1,4 @@
 
-create database tienda_db;
-use tienda_db;
-
 create table Cliente(
 id_cliente int auto_increment primary key,
 Nombre varchar(250),
