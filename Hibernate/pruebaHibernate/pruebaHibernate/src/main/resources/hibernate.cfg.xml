@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
+    <session-factory>
+        
+        <!-- Configuración de conexión -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/empresa_db</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Med@c</property>
+        
+        <!-- Dialecto se necesita saber como traducir su SQL generico al SQL especifico de nuestra bbdd-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        
+        <!-- Crear o actualizar tablas, segun las c lases mapeadas(sin borrar datos) -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- Mostrar en el terminal las sentencias SQL que ejecuta hibernmate y las formatea para que sea legible-->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        
+        <!-- Fichero de mapeo -->
+        <mapping resource="Customer.hbm.xml"/>
+        
+    </session-factory>
+</hibernate-configuration>

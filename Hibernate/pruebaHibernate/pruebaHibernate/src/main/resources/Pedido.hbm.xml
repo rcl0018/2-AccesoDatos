@@ -1,0 +1,18 @@
+<hibernate-mapping>
+
+    <class name="com.example.pruebaHibernate.Pedido" table="pedido">
+        <meta attribute="class-description">
+            Clase que almacena informacion del cliente
+        </meta>
+
+        <id name="id" type="int" column="id_Pedido">
+            <generator class="native"/>
+        </id>
+        <id name="id" type="int" column="id_Producto">
+            <generator class="native"/>
+        </id>
+
+
+
+    </class>
+</hibernate-mapping>
