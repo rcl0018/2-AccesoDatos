@@ -1,0 +1,23 @@
+<hibernate-mapping>
+
+    <class name="com.example.pruebaHibernate.Producto" table="Pedido">
+        <meta attribute="class-description">
+            Clase que almacena informacion del cliente
+        </meta>
+
+        <id name="id" type="int" column="id_pedido">
+            <generator class="native"/>
+        </id>
+
+        <property name ="fecha" column="fecha" type="Date"/>
+        <property name="cantidad" column="cantidad" type"int"/>
+        <property name="importe" column="importe" type"double"/>
+
+
+<!-- Relacion de muchso a uno-->
+<many-to-one name="customer" class="com.example.pruebaHibernate.Customer"  column="id_cliente" not-null="true"/>
+<many-to-one name="product" class="com.example.pruebaHibernate.Producto" column="id_producto" not-null="true"/>
+
+    </class>
+
+</hibernate-mapping>

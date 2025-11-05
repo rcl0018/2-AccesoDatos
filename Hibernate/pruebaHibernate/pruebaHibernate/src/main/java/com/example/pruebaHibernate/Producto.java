@@ -4,13 +4,15 @@ public class Producto {
 
     private String nombre;
     private int id;
+    private double precio;
 
 
     public Producto() {
     }
 
-    public Producto(String nombre) {
+    public Producto(String nombre, double precio) {
         this.nombre = nombre;
+        this.precio = precio;
     }
 
     public String getNombre() {
@@ -28,4 +30,14 @@ public class Producto {
     public void setId(int id) {
         this.id = id;
     }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    
 }

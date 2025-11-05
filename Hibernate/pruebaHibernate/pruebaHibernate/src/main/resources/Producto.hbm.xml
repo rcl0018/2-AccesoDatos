@@ -10,6 +10,7 @@
         </id>
 
         <property name ="nombre" column="nombre" type="string"/>
+        <property name="precio" column="precio" type"double"/>
 
 
     </class>

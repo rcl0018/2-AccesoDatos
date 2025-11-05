@@ -19,12 +19,14 @@ public class PruebaHibernateApplication {
 
 		Customer customer1 = new Customer("pedro","manuel");
 		Pedido pedido1 = new Pedido();
-		Producto producto1 = new Producto("tele");
+		Producto producto1 = new Producto("tele", 20d);
+		order ordern1 = new order();
 
 		//Almacenar el cliente en la base de datos
 		session.persist(customer1);
 		session.persist(producto1);
 		session.persist(pedido1);
+		session.persist(ordern1);
 		
 		//confirmar y cerra
 		session.getTransaction().commit();
