@@ -3,8 +3,10 @@ package com.example.pruebaHibernate;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.sql.Date;
+import jakarta.persistence.Query;
 
+import java.sql.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import org.hibernate.Session;
@@ -47,10 +49,11 @@ public class PruebaHibernateApplication {
 			System.out.println("1. crear cliente");
 			System.out.println("2. Crear un producto");
 			System.out.println("3. Crear un pedido");
-			System.out.println("Actualizar  el precio de un producto");
-			System.out.println("Borrar pedidos");
-			System.out.println("Listar pedidos de un cliente");
-			System.out.println("Salir");
+
+			System.out.println("4. Listar pedidos de un cliente");
+			System.out.println("5. Actualizar  el precio de un producto");
+			System.out.println("6. Borrar pedidos");
+			System.out.println("7. Salir");
 
 			int respuesta = sc.nextInt();
 			switch (respuesta) {
@@ -120,12 +123,66 @@ public class PruebaHibernateApplication {
 
 					break;
 				case 4:
+					sessionFactory = new Configuration().configure().buildSessionFactory();
+					session = sessionFactory.openSession();
+					session.beginTransaction();
+
+					System.out.println("dime el id del cliente");
+					int idClient = sc.nextInt();
+					List<order> pedidos = session.createQuery(
+							"FROM Order o WHERE o.customer.id = :id ORDER BY o.fecha DESC",
+							order.class)
+							.setParameter("id", idClient)
+							.getResultList();
+
+					for (Object obj : pedidos) {
+						order o = (order) obj; // cast porque List no es tipada
+						System.out.println(
+								"Pedido " + o.getId() +
+										" - Producto: " + o.getProduct().getNombre() +
+										" - Importe: " + o.getImporte());
+					}
 
 					break;
 				case 5:
+					sessionFactory = new Configuration().configure().buildSessionFactory();
+					session = sessionFactory.openSession();
+					session.beginTransaction();
+
+					System.out.println("introduce el precio del producto");
+					double precioPro = sc.nextDouble();
+
+					System.out.println("introduce el id del producto");
+					int idProducti = sc.nextInt();
+
+					Query q = session.createQuery(
+							"update Producto set precio=:p where id=:idp");
+					q.setParameter("p", precioPro);
+					q.setParameter("idp", idProducti);
+					q.executeUpdate();
+					session.getTransaction().commit();
+					session.close();
 
 					break;
+
 				case 6:
+
+					sessionFactory = new Configuration().configure().buildSessionFactory();
+					session = sessionFactory.openSession();
+					session.beginTransaction();
+
+					System.out.println("Dime el id del pedido que quieres borraer");
+					int idPedido = sc.nextInt();
+
+					order pedido2 = session.get(order.class, idPedido);
+					session.delete(pedido2);
+					session.beginTransaction();
+					session.getTransaction().commit();
+					session.close();
+
+
+					break;
+				case 7:
 					System.out.println("salilr");
 					activo = false;
 					break;
