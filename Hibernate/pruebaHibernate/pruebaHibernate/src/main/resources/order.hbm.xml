@@ -1,6 +1,6 @@
 <hibernate-mapping>
 
-    <class name="com.example.pruebaHibernate.Producto" table="Pedido">
+    <class name="com.example.pruebaHibernate.order" table="orders">
         <meta attribute="class-description">
             Clase que almacena informacion del cliente
         </meta>
@@ -9,14 +9,14 @@
             <generator class="native"/>
         </id>
 
-        <property name ="fecha" column="fecha" type="Date"/>
-        <property name="cantidad" column="cantidad" type"int"/>
-        <property name="importe" column="importe" type"double"/>
+        <property name ="fecha" column ="fecha" type ="date"/>
+        <property name="cantidad" column ="cantidad" type ="int"/>
+        <property name="importe" column ="importe" type = "double"/>
 
 
-<!-- Relacion de muchso a uno-->
-<many-to-one name="customer" class="com.example.pruebaHibernate.Customer"  column="id_cliente" not-null="true"/>
-<many-to-one name="product" class="com.example.pruebaHibernate.Producto" column="id_producto" not-null="true"/>
+    <!-- Relacion de muchso a uno-->
+    <many-to-one name ="customer" class="com.example.pruebaHibernate.Customer"  column ="id_cliente" not-null ="true"/>
+    <many-to-one name ="product" class="com.example.pruebaHibernate.Producto" column ="id_producto" not-null ="true"/>
 
     </class>
 

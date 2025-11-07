@@ -13,10 +13,12 @@ public class order {
     public order(){
     }
 
-    public order(Date fecha, int cantidad, Double importe) {
+    public order(Date fecha, int cantidad, Double importe, Customer customer, Producto producto) {
         this.fecha = fecha;
         this.cantidad = cantidad;
         this.importe = importe;
+        this.customer = customer;
+        this.product = producto;
     }
 
 
@@ -45,19 +47,23 @@ public class order {
     public void setImporte(Double importe) {
         this.importe = importe;
     }
+
     public Customer getCustomer() {
         return customer;
     }
+
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
     public Producto getProduct() {
         return product;
     }
+
     public void setProduct(Producto product) {
         this.product = product;
     }
-
+   
 
 
     

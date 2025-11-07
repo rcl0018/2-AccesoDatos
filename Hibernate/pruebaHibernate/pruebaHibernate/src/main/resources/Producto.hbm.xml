@@ -1,16 +1,16 @@
 <hibernate-mapping>
 
-    <class name="com.example.pruebaHibernate.Producto" table="Producto">
-        <meta attribute="class-description">
+    <class name = "com.example.pruebaHibernate.Producto" table = "Producto">
+        <meta attribute = "class-description">
             Clase que almacena informacion del cliente
         </meta>
 
-        <id name="id" type="int" column="id_producto">
-            <generator class="native"/>
+        <id name = "id" type = "int" column = "id_producto">
+            <generator class = "native"/>
         </id>
 
-        <property name ="nombre" column="nombre" type="string"/>
-        <property name="precio" column="precio" type"double"/>
+        <property name = "nombre" column = "nombre" type = "string"/>
+        <property name = "precio" column = "precio" type = "double"/>
 
 
     </class>
