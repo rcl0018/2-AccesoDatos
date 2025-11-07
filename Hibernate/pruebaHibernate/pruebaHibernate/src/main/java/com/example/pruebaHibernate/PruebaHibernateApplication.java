@@ -135,8 +135,8 @@ public class PruebaHibernateApplication {
 							.setParameter("id", idClient)
 							.getResultList();
 
-					for (Object obj : pedidos) {
-						order o = (order) obj; // cast porque List no es tipada
+					for (order o : pedidos) {
+						 // cast porque List no es tipada
 						System.out.println(
 								"Pedido " + o.getId() +
 										" - Producto: " + o.getProduct().getNombre() +
