@@ -43,6 +43,7 @@ public class PruebaHibernateApplication {
 		// session.getTransaction().commit();
 		// session.close();
 		// System.out.println("se ha cerrado el ciente");
+
 		boolean activo = true;
 		while (activo) {
 
@@ -185,6 +186,7 @@ public class PruebaHibernateApplication {
 				case 7:
 					System.out.println("salilr");
 					activo = false;
+
 					break;
 
 				default:
