@@ -1,25 +1,26 @@
 
-create table Cliente(
+
+create table if not exists Cliente(
 id_cliente int auto_increment primary key,
 Nombre varchar(250),
 edad varchar(20),
 ciudad varchar(100)
 );
 
-create table Pedido(
+create table if not exists Pedido(
 id_pedido int auto_increment primary key,
 fecha date,
 id_cliente int,
 foreign key(id_cliente) references Cliente(id_cliente)
 );
 
-create table Producto(
+create table if not exists Producto(
 id_producto int auto_increment primary key,
 precio decimal(10,2),
 nombre varchar(250),
 stock int
 );
-create table pedido_producto(
+create table if not exists pedido_producto(
 id_pedido int,
 id_producto int,
 cantidad int,

@@ -1,0 +1,37 @@
+
+
+📌 Anotaciones de Entidad y Mapeo Básico
+
+@Entity --> Indica que la clase es una entidad JPA y será mapeada a una tabla de la base de datos.
+@Table(name = "nombre_tabla") --> Especifica el nombre de la tabla que corresponde a la entidad.
+@Id --> Marca el campo que será la clave primaria.
+@GeneratedValue(strategy = …) --> Define cómo se generará la clave primaria. Estrategias comunes:
+
+                                        IDENTITY
+                                        SEQUENCE
+                                        TABLE
+                                        AUTO
+@Column(name = "columna", nullable =…, length =…) --> Configura propiedades de la columna correspondiente al atributo.
+@Transient --> Indica que el campo no debe persistirse en la base de datos.
+@Lob --> Define campos grandes: texto largo (CLOB) o binarios (BLOB).
+
+
+📌 Anotaciones de Relaciones
+
+@OneToOne --> Relaciona una entidad con otra de uno a uno.
+@OneToMany --> Relaciona una entidad con muchas (un campo que contiene una colección).
+@ManyToOne --> Relación de muchos a uno (la más común en tablas relacionales).
+@ManyToMany --> Relaciona dos entidades donde ambos lados pueden tener muchos del otro.
+@JoinColumn(name = "columna_fk") --> Define la columna que actúa como clave foránea.
+@JoinTable --> Configura una tabla intermedia para relaciones muchos a muchos.
+
+📌 Anotaciones de Ciclo de Vida
+
+@PrePersist --> Método ejecutado antes de insertar una entidad.
+@PostPersist --> Después de insertar.
+@PreUpdate --> Antes de actualizar.
+@PostUpdate --> Después de actualizar.
+@PreRemove --> Antes de eliminar.
+@PostRemove --> Después de eliminar.
+@PostLoad --> Después de cargar la entidad desde la BD.
+
