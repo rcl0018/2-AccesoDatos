@@ -1,0 +1,22 @@
+<hibernate-mapping>
+    <class name="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Libro" table="Libro">
+
+        <id name="idLibro" column="id_libro">
+            <generator class="identity"/>
+        </id>
+
+        <property name="titulo" />
+        <property name="anioPublicacion" />
+
+        <!-- muchos a uno: cada libro tiene un autor -->
+        <many-to-one name="autor" class="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Autor"
+                     column="id_autor" not-null="false" />
+
+        <!-- muchos a muchos: Libro <-> Género -->
+        <set name="generos" table="Libro_Genero" cascade="all">
+            <key column="id_libro"/>
+            <many-to-many class="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Genero" column="id_genero"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<hibernate-mapping>
+    <class name="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Genero" table="Genero">
+
+        <id name="idGenero" column="id_genero">
+            <generator class="identity"/>
+        </id>
+
+        <property name="nombre" />
+
+        <!-- muchos a muchos (lado inverso) -->
+        <set name="libros" table="Libro_Genero" inverse="true">
+            <key column="id_genero"/>
+            <many-to-many class="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Libro" column="id_libro"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

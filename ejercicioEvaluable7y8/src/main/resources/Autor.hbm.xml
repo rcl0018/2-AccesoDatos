@@ -1,0 +1,19 @@
+<hibernate-mapping>
+    <class name="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Autor" table="Autor">
+
+        <id name="idAutor" column="id_autor">
+            <generator class="identity"/>
+        </id>
+
+        <property name="nombre" />
+        <property name="nacionalidad" />
+        <property name="fechaNacimiento" />
+
+        <!-- Relación uno a muchos con Libro -->
+        <set name="libros" inverse="true" cascade="all">
+            <key column="id_autor" />
+            <one-to-many class="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Libro"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
