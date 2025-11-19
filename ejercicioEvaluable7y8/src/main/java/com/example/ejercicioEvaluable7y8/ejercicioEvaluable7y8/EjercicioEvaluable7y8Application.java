@@ -24,11 +24,15 @@ public class EjercicioEvaluable7y8Application {
 		while (!salir) {
 			System.out.println("\n--- MENÚ AUTORES ---");
 			System.out.println("1. Crear autor");
-			System.out.println("2. Listar autores");
-			System.out.println("3. Buscar autor por ID");
-			System.out.println("4. Actualizar autor");
-			System.out.println("5. Eliminar autor");
-			System.out.println("6. Salir");
+			System.out.println("2. Crear Libro");
+			System.out.println("3. Asignar genero al libro");
+			System.out.println("4. Listar autores");
+			System.out.println("5. Buscar autor por ID");
+			System.out.println("6. Actualizar autor");
+			System.out.println("7. Eliminar autor");
+			System.out.println("8. buscar Libro por ID autor");
+			System.out.println("9. Listar libro y genero");
+			System.out.println("10. Salir");
 			System.out.print("Elige una opción: ");
 			int opcion = sc.nextInt();
 			sc.nextLine(); // limpiar buffer

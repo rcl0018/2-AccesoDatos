@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/filosofos/filosofos.iml" filepath="$PROJECT_DIR$/filosofos/filosofos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fumadores/fumadores.iml" filepath="$PROJECT_DIR$/fumadores/fumadores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fumadores_hilos.iml" filepath="$PROJECT_DIR$/fumadores_hilos.iml" />
+    </modules>
+  </component>
+</project>
