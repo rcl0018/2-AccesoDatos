@@ -3,8 +3,7 @@ package com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import jakarta.persistence.Query;
-import jakarta.transaction.Transaction;
+
 
 import java.sql.Date;
 import java.util.HashSet;
@@ -31,7 +30,7 @@ public class EjercicioEvaluable7y8Application {
 			System.out.println("6. Salir");
 			System.out.print("Elige una opción: ");
 			int opcion = sc.nextInt();
-			sc.nextLine(); // limpiar buffer
+			sc.nextLine();
 
 			switch (opcion) {
 
@@ -83,17 +82,17 @@ public class EjercicioEvaluable7y8Application {
 
 					// Leer el ID del autor seleccionado por el usuario
 					int idAutor = sc.nextInt();
-					sc.nextLine(); // Consumir el salto de línea pendiente
+					sc.nextLine(); //  salto de línea 
 
 					// Obtener el objeto Autor correspondiente al ID seleccionado
 					Autor autor = session.get(Autor.class, idAutor);
 
-					// Crear un nuevo objeto Libro y asignarle los valores ingresados
+					// Crear un nuevo objeto Libro y asignarle los valores 
 					Libro libro = new Libro();
 					libro.setTitulo(titulo);
 					libro.setAnioPublicacion(anio);
-					libro.setAutor(autor); // Relación muchos a uno con Autor
-					libro.setGeneros(new HashSet<>()); // Inicializar la colección de géneros (vacía por ahora)
+					libro.setAutor(autor); 
+					libro.setGeneros(new HashSet<>()); //  colección de géneros 
 
 					// Iniciar la transacción, guardar el libro y confirmar la transacción
 					session.beginTransaction();
@@ -109,6 +108,7 @@ public class EjercicioEvaluable7y8Application {
 
 				}
 					break;
+					// crear genero y asignarselo a un Libro 
 
 				case 3: {
 					System.out.print("Nombre del género: ");

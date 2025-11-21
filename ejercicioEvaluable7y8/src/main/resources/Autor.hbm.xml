@@ -10,7 +10,7 @@
         <property name="fechaNacimiento" />
 
         <!-- Relación uno a muchos con Libro -->
-        <set name="libros" inverse="true" cascade="all">
+        <set name="libros" inverse="true" cascade="all"> <!-- lo que hagas al objeto principal se le hace a sus objetos relacionados -->
             <key column="id_autor" />
             <one-to-many class="com.example.ejercicioEvaluable7y8.ejercicioEvaluable7y8.Libro"/>
         </set>
