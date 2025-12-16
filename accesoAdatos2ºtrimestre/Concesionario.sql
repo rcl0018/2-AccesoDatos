@@ -107,6 +107,22 @@ INSERT INTO coche
         m.idmarca = 4;
 /
 
+INSERT INTO coche
+SELECT
+    cochetype(
+        5,                       
+        'Corsa',                 
+        18000,                   
+        ref(m),                  
+        colorestype('Azul'),     
+        reparacionestype()       
+    )
+FROM
+    marca m
+WHERE
+    m.idmarca = 2;              -- asignado a Peugeot por ejemplo
+/
+
 -- ver todas las marcas
 select * from Coche;
 
@@ -161,6 +177,54 @@ select distinct (DEREF(c.marca).nombre) from coche c;
 
 -- coches de una mrca concreta (por nombre)
 
+SELECT 
+    c.idvehiculo,
+    c.nombre as Modelo,
+    c.precio,
+    DEREF(c.marca).Nombre as Marca
+FROM coche c
+WHERE DEREF(c.marca).Nombre = 'Volvo_Raul';
+
+
 -- Colores del coche 1
+SELECT 
+    c.idvehiculo,
+    c.nombre as Modelo,
+    col.COLUMN_VALUE as Color
+FROM coche c, 
+TABLE(c.colores) col
+WHERE c.idvehiculo = 1;
 
 -- Reparaciones del coche 1
+SELECT 
+    c.idvehiculo,
+    c.nombre as Modelo,
+    rep.COLUMN_VALUE as Reparacion
+FROM coche c, 
+TABLE(c.reparaciones) rep
+WHERE c.idvehiculo = 1
+/
+
+-- insertar coche sin reàraciones
+INSERT INTO coche
+SELECT
+    cochetype(
+        6,                       
+        'renoult',                 
+        14000,                   
+        ref(m),                  
+        colorestype('Azul'),     
+        reparacionestype()       
+    )
+FROM
+    Marca m
+WHERE
+    m.idMarca = 2;
+    
+/
+SELECT idvehiculo, nombre, 
+       CASE WHEN reparaciones IS EMPTY THEN 'VACIA' ELSE 'NO VACIA' END AS estado
+FROM coche
+ORDER BY idvehiculo;
+
+
